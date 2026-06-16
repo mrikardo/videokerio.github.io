@@ -55,9 +55,9 @@ ${m.codigo}
 
 <h3>${m.musica}</h3>
 
-<div>${m.artista}</div>
-
-</div>`;
+<div class="artista">
+${m.artista}
+</div>
 
 });
 
