@@ -7,14 +7,14 @@ body{
 
 header{
     text-align:center;
-    padding:30px 20px;
+    padding:20px 20px 5px 20px;
 }
-
 .logo{
-    width:90%;
-    max-width:420px;
+    width:95%;
+    max-width:350px;
+    height:auto;
     display:block;
-    margin:auto;
+    margin:0 auto 15px auto;
 }
 
 #busca{
@@ -36,9 +36,11 @@ header{
 }
 
 #contador{
-    margin-top:15px;
-    color:#9ec8ff;
+    text-align:center;
+    color:#72b8ff;
     font-size:18px;
+    font-weight:bold;
+    margin:15px 0 25px 0;
 }
 
 #resultado{
@@ -48,51 +50,38 @@ header{
 }
 
 .card{
-    background:#1d2335;
-
-    border-radius:20px;
-
-    margin:15px 0;
-
-    padding:20px;
-
-    box-shadow:
-    0 5px 20px rgba(0,0,0,.35);
-
-    position:relative;
+    background:#1c2337;
+    border-radius:22px;
+    padding:25px;
+    margin:20px auto;
+    max-width:1000px;
+    box-shadow:0 8px 20px rgba(0,0,0,.35);
 }
 
 .codigo{
-
     display:inline-block;
+    min-width:90px;
+    text-align:center;
 
-    padding:8px 18px;
+    padding:10px 15px;
 
-    border-radius:16px;
+    border:3px solid #f0a500;
+    border-radius:18px;
 
-    border:2px solid #f0a500;
-
-    font-size:36px;
-
+    font-size:28px;
     font-weight:bold;
 
-    margin-bottom:15px;
+    margin-bottom:20px;
 }
 
 .card h3{
-
     margin:0;
-
-    font-size:38px;
-
+    font-size:52px;
     color:white;
 }
 
 .artista{
-
-    font-size:28px;
-
-    color:#72b8ff;
-
-    margin-top:10px;
+    color:#6eb6ff;
+    font-size:34px;
+    margin-top:15px;
 }
