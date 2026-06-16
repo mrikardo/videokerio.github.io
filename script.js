@@ -30,7 +30,10 @@ document
 
 resultado.innerHTML='';
 
-if(texto.length<1) return;
+if(texto.length < 2){
+    resultado.innerHTML='';
+    return;
+}
 
 const encontrados=
 musicas.filter(m=>
@@ -41,7 +44,7 @@ m.musica.toLowerCase().includes(texto) ||
 
 m.artista.toLowerCase().includes(texto)
 
-).slice(0,100);
+).slice(0,50);
 
 encontrados.forEach(m=>{
 
