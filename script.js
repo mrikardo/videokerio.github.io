@@ -1,3 +1,11 @@
+function normalizar(texto){
+    return texto
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase();
+}
+
+
 let musicas=[];
 
 fetch('musicas.json')
@@ -18,11 +26,9 @@ document
 
 function pesquisar(){
 
-const texto=
-document
-.getElementById('busca')
-.value
-.toLowerCase();
+const texto = normalizar(
+    document.getElementById('busca').value
+);
 
 const resultado=
 document
@@ -40,9 +46,9 @@ musicas.filter(m=>
 
 m.codigo.toString().includes(texto) ||
 
-m.musica.toLowerCase().includes(texto) ||
-
-m.artista.toLowerCase().includes(texto)
+normalizar(m.musica).includes(texto)
+||
+normalizar(m.artista).includes(texto)
 
 ).slice(0,50);
 
