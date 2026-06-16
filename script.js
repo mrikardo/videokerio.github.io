@@ -59,6 +59,8 @@ ${m.codigo}
 ${m.artista}
 </div>
 
+</div>`;
+
 });
 
 }
