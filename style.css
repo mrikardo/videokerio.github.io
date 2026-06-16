@@ -11,12 +11,11 @@ header{
 }
 .logo{
     width:95%;
-    max-width:350px;
+    max-width:550px;
     height:auto;
     display:block;
-    margin:0 auto 15px auto;
+    margin:20px auto;
 }
-
 #busca{
     width:90%;
     max-width:700px;
@@ -84,4 +83,25 @@ header{
     color:#6eb6ff;
     font-size:34px;
     margin-top:15px;
+}
+
+.busca-container{
+    position:relative;
+    width:90%;
+    max-width:700px;
+    margin:20px auto;
+}
+
+.lupa{
+    position:absolute;
+    left:20px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:24px;
+    color:#888;
+}
+
+#busca{
+    width:100%;
+    padding-left:60px;
 }
