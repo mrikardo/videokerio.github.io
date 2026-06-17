@@ -302,102 +302,41 @@ function paginaAnterior(){
 
 
 /* ==========================
-   FAVORITOS
+FAVORITOS
 ========================== */
 
 function favoritar(codigo){
 
-    codigo = codigo.toString();
+codigo = codigo.toString();
 
-    const indice =
-    favoritos.indexOf(codigo);
+const indice =
+favoritos.indexOf(codigo);
 
-    if(indice === -1){
+if(indice === -1){
 
-        favoritos.push(codigo);
+    favoritos.push(codigo);
 
-    }else{
+}else{
 
-        favoritos.splice(indice,1);
-
-    }
-
-    localStorage.setItem(
-        "favoritos",
-        JSON.stringify(favoritos)
-    );
-
-    atualizarBotaoFavoritos();
-
-    renderizar();
+    favoritos.splice(indice,1);
 
 }
 
+localStorage.setItem(
+    "favoritos",
+    JSON.stringify(favoritos)
+);
 
-function mostrarFavoritos(){
+atualizarBotaoFavoritos();
 
-    document
-    .querySelectorAll(".categoria")
-    .forEach(btn =>
-        btn.classList.remove("ativa")
-    );
-
-    const btnFavoritos =
-    document.querySelector(
-        '.categoria[onclick="mostrarFavoritos()"]'
-    );
-
-    if(btnFavoritos){
-
-        btnFavoritos.classList.add("ativa");
-
-    }
-
-    resultados = musicas.filter(m =>
-
-        favoritos.includes(
-            m.codigo.toString()
-        )
-
-    );
-
-    ordenarResultados();
-
-    paginaAtual = 1;
-
-    renderizar();
+renderizar();
 
 }
 
+/* ==========================
+CATEGORIAS
+========================== */
 
-function mostrarTodas(){
-
-    document
-    .querySelectorAll(".categoria")
-    .forEach(btn =>
-        btn.classList.remove("ativa")
-    );
-
-    const btnTodas =
-    document.querySelector(
-        '.categoria[onclick="mostrarTodas()"]'
-    );
-
-    if(btnTodas){
-
-        btnTodas.classList.add("ativa");
-
-    }
-
-    resultados = [...musicas];
-
-    ordenarResultados();
-
-    paginaAtual = 1;
-
-    renderizar();
-
-}
 function limparCategorias(){
 
 document
@@ -408,18 +347,31 @@ document
 
 }
 
+/* ==========================
+FAVORITOS
+========================== */
+
 function mostrarFavoritos(){
 
 limparCategorias();
 
-const btn = document.getElementById("btnFavoritos");
+const btn =
+document.getElementById(
+    "btnFavoritos"
+);
 
 if(btn){
+
     btn.classList.add("ativa");
+
 }
 
 resultados = musicas.filter(m =>
-    favoritos.includes(m.codigo.toString())
+
+    favoritos.includes(
+        m.codigo.toString()
+    )
+
 );
 
 ordenarResultados();
@@ -430,14 +382,23 @@ renderizar();
 
 }
 
+/* ==========================
+TODAS
+========================== */
+
 function mostrarTodas(){
 
 limparCategorias();
 
-const btn = document.getElementById("btnTodas");
+const btn =
+document.getElementById(
+    "btnTodas"
+);
 
 if(btn){
+
     btn.classList.add("ativa");
+
 }
 
 resultados = [...musicas];
@@ -450,18 +411,29 @@ renderizar();
 
 }
 
+/* ==========================
+NACIONAIS
+========================== */
+
 function mostrarNacionais(){
 
 limparCategorias();
 
-const btn = document.getElementById("btnNacionais");
+const btn =
+document.getElementById(
+    "btnNacionais"
+);
 
 if(btn){
+
     btn.classList.add("ativa");
+
 }
 
 resultados = musicas.filter(m =>
+
     m.idioma === "BRA"
+
 );
 
 ordenarResultados();
@@ -471,19 +443,30 @@ paginaAtual = 1;
 renderizar();
 
 }
+
+/* ==========================
+INTERNACIONAIS
+========================== */
 
 function mostrarInternacionais(){
 
 limparCategorias();
 
-const btn = document.getElementById("btnInternacionais");
+const btn =
+document.getElementById(
+    "btnInternacionais"
+);
 
 if(btn){
+
     btn.classList.add("ativa");
+
 }
 
 resultados = musicas.filter(m =>
+
     m.idioma !== "BRA"
+
 );
 
 ordenarResultados();
@@ -493,20 +476,31 @@ paginaAtual = 1;
 renderizar();
 
 }
+
+/* ==========================
+GOSPEL
+========================== */
 
 function mostrarGospel(){
 
 limparCategorias();
 
-const btn = document.getElementById("btnGospel");
+const btn =
+document.getElementById(
+    "btnGospel"
+);
 
 if(btn){
+
     btn.classList.add("ativa");
+
 }
 
 resultados = musicas.filter(m =>
+
     m.genero &&
     m.genero.toLowerCase() === "gospel"
+
 );
 
 ordenarResultados();
@@ -517,19 +511,30 @@ renderizar();
 
 }
 
+/* ==========================
+INFANTIL
+========================== */
+
 function mostrarInfantil(){
 
 limparCategorias();
 
-const btn = document.getElementById("btnInfantil");
+const btn =
+document.getElementById(
+    "btnInfantil"
+);
 
 if(btn){
+
     btn.classList.add("ativa");
+
 }
 
 resultados = musicas.filter(m =>
+
     m.genero &&
     m.genero.toLowerCase() === "infantil"
+
 );
 
 ordenarResultados();
