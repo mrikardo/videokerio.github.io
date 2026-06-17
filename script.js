@@ -6,6 +6,11 @@ let paginaAtual = 1;
 
 const itensPorPagina = 20;
 
+let favoritos =
+JSON.parse(
+localStorage.getItem("favoritos")
+) || [];
+
 
 /* ==========================
    CARREGA JSON
@@ -145,9 +150,17 @@ function renderizar(){
             </div>
 
             <div class="favorito"
-                 onclick="favoritar(this)">
-                 🤍
-            </div>
+     onclick="favoritar('${m.codigo}')">
+
+     ${
+        favoritos.includes(
+            m.codigo.toString()
+        )
+        ? "❤️"
+        : "🤍"
+     }
+
+</div>
 
         </div>
 
@@ -223,14 +236,26 @@ function paginaAnterior(){
    FAVORITOS
 ========================== */
 
-function favoritar(el){
+function favoritar(codigo){
 
-    if(el.innerHTML === "🤍"){
+    codigo = codigo.toString();
 
-        el.innerHTML = "❤️";
+    const indice =
+    favoritos.indexOf(codigo);
+
+    if(indice === -1){
+
+        favoritos.push(codigo);
 
     }else{
 
-        el.innerHTML = "🤍";
+        favoritos.splice(indice,1);
     }
+
+    localStorage.setItem(
+        "favoritos",
+        JSON.stringify(favoritos)
+    );
+
+    renderizar();
 }
