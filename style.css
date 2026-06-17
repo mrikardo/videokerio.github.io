@@ -20,7 +20,7 @@ header{
 
 .logo{
     width:90%;
-    max-width:180px;
+    max-width:260px;
     height:auto;
     display:block;
     margin:20px auto;
@@ -38,7 +38,7 @@ header{
 
 .busca-box{
     width:90%;
-    max-width:900px;
+    max-width:800px;
 
     display:flex;
     align-items:center;
@@ -333,4 +333,142 @@ header{
     background:#f0a500;
 
     color:black;
+}
+
+/* ===================================
+   RODAPÉ
+=================================== */
+
+.rodape{
+
+    position:fixed;
+
+    bottom:0;
+    left:0;
+
+    width:100%;
+
+    height:70px;
+
+    background:#171b30;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:25px;
+
+    box-shadow:0 -3px 10px rgba(0,0,0,.4);
+
+    z-index:999;
+}
+
+.btn-pagina{
+
+    width:55px;
+    height:55px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#d94801;
+
+    color:white;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+}
+
+.btn-pagina:hover{
+
+    transform:scale(1.05);
+}
+
+.pagina-atual{
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    color:white;
+}
+
+/* espaço para o rodapé */
+
+body{
+    padding-bottom:90px;
+}/* ===================================
+   RODAPÉ
+=================================== */
+
+.rodape{
+
+    position:fixed;
+
+    bottom:0;
+    left:0;
+
+    width:100%;
+
+    height:70px;
+
+    background:#171b30;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:25px;
+
+    box-shadow:0 -3px 10px rgba(0,0,0,.4);
+
+    z-index:999;
+}
+
+.btn-pagina{
+
+    width:55px;
+    height:55px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#d94801;
+
+    color:white;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+}
+
+.btn-pagina:hover{
+
+    transform:scale(1.05);
+}
+
+.pagina-atual{
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    color:white;
+}
+
+/* espaço para o rodapé */
+
+body{
+    padding-bottom:90px;
 }

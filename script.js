@@ -1,8 +1,18 @@
 let musicas = [];
 
-// Carrega o JSON
+let resultados = [];
+
+let paginaAtual = 1;
+
+const itensPorPagina = 20;
+
+
+/* ==========================
+   CARREGA JSON
+========================== */
+
 fetch("musicas.json")
-.then(response => response.json())
+.then(r => r.json())
 .then(data => {
 
     musicas = data;
@@ -11,23 +21,28 @@ fetch("musicas.json")
         `${musicas.length} músicas cadastradas`;
 
 })
-.catch(error => {
+.catch(err => {
 
-    console.error("Erro ao carregar musicas.json", error);
+    console.error(err);
 
     document.getElementById("contador").innerHTML =
         "Erro ao carregar catálogo";
-
 });
 
 
-// Evento da busca
+/* ==========================
+   EVENTO BUSCA
+========================== */
+
 document
 .getElementById("busca")
 .addEventListener("input", pesquisar);
 
 
-// Função principal
+/* ==========================
+   PESQUISA
+========================== */
+
 function pesquisar(){
 
     const texto =
@@ -43,11 +58,16 @@ function pesquisar(){
 
     resultado.innerHTML = "";
 
-    if(texto.length < 1){
+    if(texto === ""){
+
+        resultados = [];
+
+        atualizarPagina();
+
         return;
     }
 
-    const encontrados = musicas.filter(m =>
+    resultados = musicas.filter(m =>
 
         m.codigo.toString().includes(texto)
 
@@ -59,22 +79,35 @@ function pesquisar(){
 
         m.artista.toLowerCase().includes(texto)
 
-    ).slice(0,100);
+    );
+
+    paginaAtual = 1;
+
+    renderizar();
+}
 
 
-    if(encontrados.length === 0){
+/* ==========================
+   RENDERIZA RESULTADOS
+========================== */
 
-        resultado.innerHTML = `
-        <div class="card">
-            <h3>Nenhuma música encontrada</h3>
-        </div>
-        `;
+function renderizar(){
 
-        return;
-    }
+    const resultado =
+    document.getElementById("resultado");
 
+    resultado.innerHTML = "";
 
-    encontrados.forEach(m => {
+    const inicio =
+    (paginaAtual - 1) * itensPorPagina;
+
+    const fim =
+    inicio + itensPorPagina;
+
+    const pagina =
+    resultados.slice(inicio,fim);
+
+    pagina.forEach(m => {
 
         resultado.innerHTML += `
 
@@ -97,23 +130,92 @@ function pesquisar(){
             </div>
 
             <div class="favorito"
-onclick="favoritar(this)">
-🤍
-</div>
+                 onclick="favoritar(this)">
+                 🤍
+            </div>
 
         </div>
 
         `;
-
     });
 
+    atualizarPagina();
 }
+
+
+/* ==========================
+   PAGINAÇÃO
+========================== */
+
+function atualizarPagina(){
+
+    const totalPaginas =
+
+    Math.max(
+        1,
+        Math.ceil(
+            resultados.length /
+            itensPorPagina
+        )
+    );
+
+    document.getElementById("paginaAtual")
+    .innerHTML =
+    `${paginaAtual} de ${totalPaginas}`;
+}
+
+
+function proximaPagina(){
+
+    const totalPaginas =
+
+    Math.ceil(
+        resultados.length /
+        itensPorPagina
+    );
+
+    if(paginaAtual < totalPaginas){
+
+        paginaAtual++;
+
+        renderizar();
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+    }
+}
+
+
+function paginaAnterior(){
+
+    if(paginaAtual > 1){
+
+        paginaAtual--;
+
+        renderizar();
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+    }
+}
+
+
+/* ==========================
+   FAVORITOS
+========================== */
+
 function favoritar(el){
 
     if(el.innerHTML === "🤍"){
+
         el.innerHTML = "❤️";
+
     }else{
+
         el.innerHTML = "🤍";
     }
-
 }
