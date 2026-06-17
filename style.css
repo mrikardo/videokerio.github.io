@@ -1,5 +1,5 @@
 /* ==========================================
-   VIDEOKÊ RIO
+   RESET
 ========================================== */
 
 *{
@@ -8,15 +8,19 @@
     box-sizing:border-box;
 }
 
+/* ==========================================
+   GERAL
+========================================== */
+
 body{
 
     background:#001842;
 
-    color:#ffffff;
+    color:white;
 
     font-family:Segoe UI, Arial, sans-serif;
 
-    padding-top:270px;
+    padding-top:190px;
 
     padding-bottom:90px;
 }
@@ -40,7 +44,7 @@ header{
 
     text-align:center;
 
-    padding:15px 20px;
+    padding:10px 20px 15px;
 
     box-shadow:
     0 2px 10px rgba(0,0,0,.35);
@@ -56,11 +60,11 @@ header{
 
     width:100%;
 
-    max-width:300px;
+    max-width:120px;
 
     height:auto;
 
-    margin:0 auto 20px auto;
+    margin:0 auto 15px auto;
 }
 
 /* ==========================================
@@ -71,7 +75,7 @@ header{
 
     width:95%;
 
-    max-width:1000px;
+    max-width:900px;
 
     margin:0 auto;
 }
@@ -88,16 +92,16 @@ header{
 
     border-radius:30px;
 
-    height:70px;
+    height:60px;
 
-    padding:0 25px;
+    padding:0 20px;
 }
 
 .icone-busca{
 
-    font-size:34px;
+    font-size:28px;
 
-    margin-right:15px;
+    margin-right:12px;
 }
 
 #busca{
@@ -112,12 +116,12 @@ header{
 
     color:white;
 
-    font-size:28px;
+    font-size:20px;
 }
 
 #busca::placeholder{
 
-    color:#9c9c9c;
+    color:#a0a0a0;
 }
 
 /* ==========================================
@@ -132,14 +136,14 @@ header{
 
     flex-wrap:wrap;
 
-    gap:10px;
+    gap:8px;
 
     margin-top:15px;
 }
 
 .categoria{
 
-    background:#1e2542;
+    background:#1f2744;
 
     color:white;
 
@@ -147,11 +151,11 @@ header{
 
     border-radius:25px;
 
-    padding:10px 18px;
+    padding:8px 16px;
 
     cursor:pointer;
 
-    font-size:15px;
+    font-size:14px;
 
     font-weight:bold;
 
@@ -193,7 +197,7 @@ header{
 
     color:#c7c7c7;
 
-    font-size:14px;
+    font-size:13px;
 
     margin-top:5px;
 }
@@ -234,11 +238,11 @@ header{
 
     border-radius:24px;
 
-    padding:20px 25px;
+    padding:20px 30px;
 
     margin-bottom:18px;
 
-    min-height:140px;
+    min-height:150px;
 
     box-shadow:
     0 4px 12px rgba(0,0,0,.25);
@@ -259,6 +263,8 @@ header{
 
     display:inline-block;
 
+    width:auto;
+
     padding:8px 18px;
 
     border:3px solid #f0a500;
@@ -275,7 +281,7 @@ header{
 }
 
 /* ==========================================
-   TÍTULO
+   MÚSICA
 ========================================== */
 
 .card h3{
@@ -289,6 +295,8 @@ header{
     font-weight:700;
 
     text-transform:uppercase;
+
+    max-width:85%;
 }
 
 /* ==========================================
@@ -302,6 +310,8 @@ header{
     font-size:18px;
 
     font-weight:bold;
+
+    max-width:85%;
 }
 
 /* ==========================================
@@ -312,7 +322,7 @@ header{
 
     color:#bfbfbf;
 
-    font-size:14px;
+    font-size:13px;
 
     margin-top:5px;
 
@@ -327,17 +337,19 @@ header{
 
     position:absolute;
 
-    right:25px;
+    right:30px;
 
     top:50%;
 
     transform:translateY(-50%);
 
-    font-size:46px;
+    font-size:42px;
 
     cursor:pointer;
 
     user-select:none;
+
+    line-height:1;
 }
 
 /* ==========================================
@@ -391,7 +403,7 @@ header{
 
 #paginaAtual{
 
-    font-size:20px;
+    font-size:18px;
 
     font-weight:bold;
 }
@@ -413,34 +425,34 @@ header{
 }
 
 /* ==========================================
-   CELULAR
+   MOBILE
 ========================================== */
 
 @media(max-width:768px){
 
     body{
-        padding-top:230px;
+        padding-top:170px;
     }
 
     .logo{
-        max-width:180px;
+        max-width:90px;
     }
 
     .busca-box{
-        height:55px;
+        height:52px;
+    }
+
+    .icone-busca{
+        font-size:24px;
     }
 
     #busca{
         font-size:18px;
     }
 
-    .icone-busca{
-        font-size:28px;
-    }
-
     .categoria{
         font-size:12px;
-        padding:8px 12px;
+        padding:7px 12px;
     }
 
     .codigo{
@@ -456,6 +468,6 @@ header{
     }
 
     .favorito{
-        font-size:36px;
+        font-size:34px;
     }
 }
