@@ -1,534 +1,461 @@
-/* =======================================
-VIDEOKÊ RIO - CATÁLOGO ONLINE
-======================================= */
-
-/* RESET */
+/* ==========================================
+   VIDEOKÊ RIO
+========================================== */
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
-
-/* =======================================
-GERAL
-======================================= */
 
 body{
-background:#001842;
-color:#ffffff;
-font-family:Segoe UI, Arial, sans-serif;
-padding-bottom:90px;
+
+    background:#001842;
+
+    color:#ffffff;
+
+    font-family:Segoe UI, Arial, sans-serif;
+
+    padding-top:270px;
+
+    padding-bottom:90px;
 }
 
-/* =======================================
-TOPO FIXO
-======================================= */
+/* ==========================================
+   HEADER FIXO
+========================================== */
 
 header{
 
-```
-position:sticky;
-top:0;
+    position:fixed;
 
-z-index:1000;
+    top:0;
+    left:0;
 
-background:#001842;
+    width:100%;
 
-text-align:center;
+    z-index:9999;
 
-padding:15px 20px 10px;
+    background:#001842;
 
-box-shadow:
-0 2px 10px rgba(0,0,0,.25);
-```
+    text-align:center;
 
+    padding:15px 20px;
+
+    box-shadow:
+    0 2px 10px rgba(0,0,0,.35);
 }
 
-/* =======================================
-LOGO
-======================================= */
+/* ==========================================
+   LOGO
+========================================== */
 
 .logo{
 
-```
-width:100%;
-max-width:220px;
+    display:block;
 
-height:auto;
+    width:100%;
 
-display:block;
+    max-width:300px;
 
-margin:0 auto 20px auto;
-```
+    height:auto;
 
+    margin:0 auto 20px auto;
 }
 
-/* =======================================
-BUSCA
-======================================= */
+/* ==========================================
+   BUSCA
+========================================== */
 
 .busca-container{
 
-```
-width:90%;
-max-width:850px;
+    width:95%;
 
-margin:0 auto;
-```
+    max-width:1000px;
 
+    margin:0 auto;
 }
 
 .busca-box{
 
-```
-display:flex;
-align-items:center;
+    display:flex;
 
-background:#222944;
+    align-items:center;
 
-border:3px solid #f0a500;
+    background:#222944;
 
-border-radius:28px;
+    border:3px solid #f0a500;
 
-height:58px;
+    border-radius:30px;
 
-padding:0 20px;
-```
+    height:70px;
 
+    padding:0 25px;
 }
 
 .icone-busca{
 
-```
-font-size:30px;
+    font-size:34px;
 
-margin-right:15px;
-```
-
+    margin-right:15px;
 }
 
 #busca{
 
-```
-flex:1;
+    flex:1;
 
-border:none;
-outline:none;
+    border:none;
 
-background:transparent;
+    outline:none;
 
-color:white;
+    background:transparent;
 
-font-size:20px;
-```
+    color:white;
 
+    font-size:28px;
 }
 
 #busca::placeholder{
 
-```
-color:#9d9d9d;
-```
-
+    color:#9c9c9c;
 }
 
-/* =======================================
-CATEGORIAS
-======================================= */
+/* ==========================================
+   CATEGORIAS
+========================================== */
 
 .categorias{
 
-```
-display:flex;
+    display:flex;
 
-justify-content:center;
+    justify-content:center;
 
-flex-wrap:wrap;
+    flex-wrap:wrap;
 
-gap:10px;
+    gap:10px;
 
-margin-top:15px;
-```
-
+    margin-top:15px;
 }
 
 .categoria{
 
-```
-background:transparent;
+    background:#1e2542;
 
-color:white;
+    color:white;
 
-border:2px solid #f0a500;
+    border:2px solid #f0a500;
 
-border-radius:25px;
+    border-radius:25px;
 
-padding:8px 16px;
+    padding:10px 18px;
 
-cursor:pointer;
+    cursor:pointer;
 
-font-size:14px;
+    font-size:15px;
 
-font-weight:bold;
+    font-weight:bold;
 
-transition:.2s;
-```
-
+    transition:.2s;
 }
 
 .categoria:hover{
 
-```
-transform:translateY(-2px);
-```
-
+    transform:translateY(-2px);
 }
 
 .categoria.ativa{
 
-```
-background:#f0a500;
+    background:#f0a500;
 
-color:#000;
-```
-
+    color:black;
 }
 
-/* =======================================
-CONTADORES
-======================================= */
+/* ==========================================
+   CONTADORES
+========================================== */
 
 #contador{
 
-```
-margin-top:15px;
+    text-align:center;
 
-text-align:center;
+    color:#58a8ff;
 
-color:#5ca8ff;
+    font-size:18px;
 
-font-size:18px;
+    font-weight:bold;
 
-font-weight:bold;
-```
-
+    margin-top:15px;
 }
 
 #resultadosEncontrados{
 
-```
-text-align:center;
+    text-align:center;
 
-color:#c9c9c9;
+    color:#c7c7c7;
 
-font-size:14px;
+    font-size:14px;
 
-margin-top:4px;
-```
-
+    margin-top:5px;
 }
 
 .subtitulo{
 
-```
-text-align:center;
+    text-align:center;
 
-color:#ffffff;
+    color:white;
 
-font-size:13px;
+    font-size:14px;
 
-margin-top:6px;
-```
-
+    margin-top:5px;
 }
 
-/* =======================================
-RESULTADOS
-======================================= */
+/* ==========================================
+   RESULTADOS
+========================================== */
 
 #resultado{
 
-```
-width:95%;
-max-width:1100px;
+    width:95%;
 
-margin:20px auto;
-```
+    max-width:1200px;
 
+    margin:20px auto;
 }
 
-/* =======================================
-CARD
-======================================= */
+/* ==========================================
+   CARD
+========================================== */
 
 .card{
 
-```
-position:relative;
+    position:relative;
 
-background:#2a2b47;
+    background:#2a2b47;
 
-border-radius:22px;
+    border-radius:24px;
 
-padding:18px 25px;
+    padding:20px 25px;
 
-margin-bottom:15px;
+    margin-bottom:18px;
 
-min-height:105px;
+    min-height:140px;
 
-box-shadow:
-0 4px 12px rgba(0,0,0,.25);
+    box-shadow:
+    0 4px 12px rgba(0,0,0,.25);
 
-transition:.2s;
-```
-
+    transition:.2s;
 }
 
 .card:hover{
 
-```
-transform:translateY(-2px);
-```
-
+    transform:translateY(-2px);
 }
 
-/* =======================================
-CÓDIGO
-======================================= */
+/* ==========================================
+   CÓDIGO
+========================================== */
 
 .codigo{
 
-```
-display:inline-block;
+    display:inline-block;
 
-padding:6px 16px;
+    padding:8px 18px;
 
-border:2px solid #f0a500;
+    border:3px solid #f0a500;
 
-border-radius:18px;
+    border-radius:18px;
 
-font-size:20px;
+    color:white;
 
-font-weight:bold;
+    font-size:20px;
 
-margin-bottom:12px;
-```
+    font-weight:bold;
 
+    margin-bottom:15px;
 }
 
-/* =======================================
-MÚSICA
-======================================= */
+/* ==========================================
+   TÍTULO
+========================================== */
 
 .card h3{
 
-```
-color:white;
+    margin:0 0 10px 0;
 
-font-size:22px;
+    color:white;
 
-font-weight:700;
+    font-size:22px;
 
-margin-bottom:5px;
-```
+    font-weight:700;
 
+    text-transform:uppercase;
 }
 
-/* =======================================
-ARTISTA
-======================================= */
+/* ==========================================
+   ARTISTA
+========================================== */
 
 .artista{
 
-```
-color:#61a8ff;
+    color:#61a8ff;
 
-font-size:18px;
+    font-size:18px;
 
-font-weight:bold;
-```
-
+    font-weight:bold;
 }
 
-/* =======================================
-GÊNERO
-======================================= */
+/* ==========================================
+   GÊNERO
+========================================== */
 
 .genero{
 
-```
-color:#bdbdbd;
+    color:#bfbfbf;
 
-font-size:13px;
+    font-size:14px;
 
-margin-top:5px;
+    margin-top:5px;
 
-font-style:italic;
-```
-
+    font-style:italic;
 }
 
-/* =======================================
-FAVORITO
-======================================= */
+/* ==========================================
+   FAVORITO
+========================================== */
 
 .favorito{
 
-```
-position:absolute;
+    position:absolute;
 
-right:20px;
+    right:25px;
 
-top:50%;
+    top:50%;
 
-transform:translateY(-50%);
+    transform:translateY(-50%);
 
-font-size:32px;
+    font-size:46px;
 
-cursor:pointer;
+    cursor:pointer;
 
-user-select:none;
-
-transition:.2s;
-```
-
+    user-select:none;
 }
 
-.favorito:hover{
-
-```
-transform:
-translateY(-50%)
-scale(1.15);
-```
-
-}
-
-/* =======================================
-PAGINAÇÃO
-======================================= */
+/* ==========================================
+   PAGINAÇÃO
+========================================== */
 
 .paginacao{
 
-```
-position:fixed;
+    position:fixed;
 
-bottom:0;
-left:0;
+    bottom:0;
 
-width:100%;
+    left:0;
 
-background:#1b2138;
+    width:100%;
 
-display:flex;
+    background:#1b2138;
 
-justify-content:center;
+    display:flex;
 
-align-items:center;
+    justify-content:center;
 
-gap:20px;
+    align-items:center;
 
-padding:12px;
+    gap:20px;
 
-box-shadow:
-0 -3px 10px rgba(0,0,0,.4);
-```
+    padding:12px;
 
+    box-shadow:
+    0 -3px 10px rgba(0,0,0,.4);
 }
 
 .paginacao button{
 
-```
-width:52px;
-height:52px;
+    width:55px;
 
-border:none;
+    height:55px;
 
-border-radius:50%;
+    border:none;
 
-background:#e65100;
+    border-radius:50%;
 
-color:white;
+    background:#e65100;
 
-font-size:22px;
+    color:white;
 
-cursor:pointer;
-```
+    font-size:24px;
 
+    cursor:pointer;
 }
 
 #paginaAtual{
 
-```
-font-size:18px;
+    font-size:20px;
 
-font-weight:bold;
-```
-
+    font-weight:bold;
 }
 
-/* =======================================
-SCROLLBAR
-======================================= */
+/* ==========================================
+   SCROLLBAR
+========================================== */
 
 ::-webkit-scrollbar{
 
-```
-width:10px;
-```
-
+    width:10px;
 }
 
 ::-webkit-scrollbar-thumb{
 
-```
-background:#f0a500;
+    background:#f0a500;
 
-border-radius:10px;
-```
-
+    border-radius:10px;
 }
 
-/* =======================================
-MOBILE
-======================================= */
+/* ==========================================
+   CELULAR
+========================================== */
 
 @media(max-width:768px){
 
-```
-.logo{
-    max-width:180px;
-}
+    body{
+        padding-top:230px;
+    }
 
-.busca-box{
-    height:52px;
-}
+    .logo{
+        max-width:180px;
+    }
 
-#busca{
-    font-size:18px;
-}
+    .busca-box{
+        height:55px;
+    }
 
-.codigo{
-    font-size:18px;
-}
+    #busca{
+        font-size:18px;
+    }
 
-.card h3{
-    font-size:18px;
-}
+    .icone-busca{
+        font-size:28px;
+    }
 
-.artista{
-    font-size:15px;
-}
+    .categoria{
+        font-size:12px;
+        padding:8px 12px;
+    }
 
-.favorito{
-    font-size:28px;
-}
+    .codigo{
+        font-size:18px;
+    }
 
-.categoria{
-    font-size:12px;
-    padding:8px 12px;
-}
-```
+    .card h3{
+        font-size:18px;
+    }
 
+    .artista{
+        font-size:15px;
+    }
+
+    .favorito{
+        font-size:36px;
+    }
 }
