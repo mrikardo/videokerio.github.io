@@ -1,59 +1,59 @@
-/* ================================= */
-/* VIDEOKÊ RIO - CATÁLOGO ONLINE     */
-/* ================================= */
+/* ==========================
+   GERAL
+========================== */
 
 body{
     margin:0;
-    min-height:100vh;
-
-    background:#00152d;
-
-    font-family:Segoe UI, Arial, sans-serif;
+    background:#08152d;
+    font-family:'Segoe UI', Arial, sans-serif;
     color:#fff;
 }
 
-/* ================================= */
-/* CABEÇALHO                         */
-/* ================================= */
+/* ==========================
+   TOPO
+========================== */
 
 header{
     text-align:center;
-    padding:15px 20px 5px;
+    padding:20px 15px;
 }
 
 .logo{
     width:90%;
-    max-width:380px;
-    height:auto;
+    max-width:320px;
     display:block;
-    margin:0 auto 10px auto;
+    margin:10px auto 30px auto;
 }
 
-/* ================================= */
-/* CAMPO DE BUSCA                    */
-/* ================================= */
+/* ==========================
+   BUSCA
+========================== */
 
 .busca-container{
-    width:80%;
-    max-width:700px;
-    margin:15px auto;
+    width:100%;
+    display:flex;
+    justify-content:center;
 }
 
 .busca-box{
+    width:90%;
+    max-width:900px;
+
     display:flex;
     align-items:center;
 
-    background:#1d2335;
+    background:#1f2640;
 
     border:3px solid #f0a500;
-
     border-radius:25px;
 
-    padding:10px 15px;
+    padding:10px 20px;
+
+    box-sizing:border-box;
 }
 
 .icone-busca{
-    font-size:18px;
+    font-size:34px;
     margin-right:15px;
 }
 
@@ -70,133 +70,168 @@ header{
 }
 
 #busca::placeholder{
-    color:#8e8e8e;
+    color:#8b8b8b;
 }
 
-/* ================================= */
-/* CONTADOR                          */
-/* ================================= */
+/* ==========================
+   CONTADOR
+========================== */
 
 #contador{
     text-align:center;
 
-    color:#5ca8ff;
+    color:#58a5ff;
 
-    font-size:22px;
-
+    font-size:18px;
     font-weight:bold;
 
-    margin-top:12px;
+    margin-top:20px;
 }
 
-.subtitulo{
+.subtexto{
     text-align:center;
 
-    color:#9db5d6;
+    color:#9db7d8;
+
+    font-size:14px;
 
     margin-top:10px;
-
-    font-size:16px;
+    margin-bottom:30px;
 }
 
-/* ================================= */
-/* RESULTADOS                        */
-/* ================================= */
+/* ==========================
+   RESULTADOS
+========================== */
 
 #resultado{
     width:95%;
     max-width:1200px;
-    margin:40px auto;
+
+    margin:0 auto 30px auto;
 }
 
-.card{
-    background:#1c243d;
+/* ==========================
+   CARD
+========================== */
 
-    border-radius:22px;
+.card{
+    position:relative;
+
+    background:#26273b;
+
+    border-radius:20px;
 
     padding:25px;
 
-    margin-bottom:15px;
+    margin-bottom:18px;
 
     box-shadow:
-    0 5px 15px rgba(0,0,0,.25);
-
-    transition:.2s;
+    0 4px 12px rgba(0,0,0,.25);
 }
 
-.card:hover{
-    transform:translateY(-2px);
-}
+/* ==========================
+   CÓDIGO
+========================== */
 
 .codigo{
     display:inline-block;
 
     border:3px solid #f0a500;
 
-    border-radius:18px;
+    border-radius:25px;
 
     padding:8px 18px;
 
     color:white;
 
-    font-size:32px;
-
+    font-size:28px;
     font-weight:bold;
 
     margin-bottom:15px;
 }
 
-.card h3{
-    margin:10px 0;
+/* ==========================
+   NOME DA MÚSICA
+========================== */
 
-    font-size:48px;
+.card h3{
+    margin:0 0 10px 0;
 
     color:white;
 
-    text-transform:uppercase;
+    font-size:28px;
+    font-weight:400;
+    text-transform:none;
 }
+
+/* ==========================
+   ARTISTA
+========================== */
 
 .artista{
-    color:#61a8ff;
+    color:#69aaff;
 
-    font-size:28px;
-
+    font-size:22px;
     font-weight:bold;
+
+    margin-bottom:5px;
 }
 
-/* ================================= */
-/* SCROLLBAR                         */
-/* ================================= */
+/* ==========================
+   GÊNERO
+========================== */
 
-::-webkit-scrollbar{
-    width:10px;
+.genero{
+    color:#c6c6c6;
+
+    font-size:14px;
+
+    font-style:italic;
 }
 
-::-webkit-scrollbar-track{
-    background:#0a1833;
+/* ==========================
+   FAVORITO
+========================== */
+
+.favorito{
+    position:absolute;
+
+    right:25px;
+    bottom:20px;
+
+    font-size:34px;
+
+    color:white;
+
+    cursor:pointer;
+
+    opacity:.85;
 }
 
-::-webkit-scrollbar-thumb{
-    background:#f0a500;
-    border-radius:10px;
+.favorito:hover{
+    color:red;
 }
 
-/* ================================= */
-/* RESPONSIVO                        */
-/* ================================= */
+/* ==========================
+   MOBILE
+========================== */
 
 @media(max-width:768px){
 
     .logo{
-        max-width:320px;
+        max-width:220px;
     }
 
-    .icone-busca{
-        font-size:28px;
+    .busca-box{
+        width:95%;
     }
 
     #busca{
         font-size:18px;
+    }
+
+    .icone-busca{
+        font-size:28px;
     }
 
     .codigo{
@@ -204,14 +239,10 @@ header{
     }
 
     .card h3{
-        font-size:30px;
+        font-size:22px;
     }
 
     .artista{
-        font-size:20px;
-    }
-
-    #contador{
         font-size:18px;
     }
 }

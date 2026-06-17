@@ -1,81 +1,109 @@
-function normalizar(texto){
-    return texto
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .toLowerCase();
-}
+let musicas = [];
 
+// Carrega o JSON
+fetch("musicas.json")
+.then(response => response.json())
+.then(data => {
 
-let musicas=[];
+    musicas = data;
 
-fetch('musicas.json')
-.then(r=>r.json())
-.then(data=>{
+    document.getElementById("contador").innerHTML =
+        `${musicas.length} músicas cadastradas`;
 
-musicas=data;
+})
+.catch(error => {
 
-document.getElementById('contador')
-.innerHTML=
-`${musicas.length} músicas cadastradas`;
+    console.error("Erro ao carregar musicas.json", error);
+
+    document.getElementById("contador").innerHTML =
+        "Erro ao carregar catálogo";
 
 });
 
-document
-.getElementById('busca')
-.addEventListener('input',pesquisar);
 
+// Evento da busca
+document
+.getElementById("busca")
+.addEventListener("input", pesquisar);
+
+
+// Função principal
 function pesquisar(){
 
-const texto = normalizar(
-    document.getElementById('busca').value
-);
+    const texto =
+    document
+    .getElementById("busca")
+    .value
+    .toLowerCase()
+    .trim();
 
-const resultado=
-document
-.getElementById('resultado');
+    const resultado =
+    document
+    .getElementById("resultado");
 
-resultado.innerHTML='';
+    resultado.innerHTML = "";
 
-if(texto.length < 2){
-    resultado.innerHTML='';
-    return;
-}
+    if(texto.length < 1){
+        return;
+    }
 
-const encontrados=
-musicas.filter(m=>
+    const encontrados = musicas.filter(m =>
 
-m.codigo.toString().includes(texto) ||
+        m.codigo.toString().includes(texto)
 
-normalizar(m.musica).includes(texto)
-||
-normalizar(m.artista).includes(texto)
+        ||
 
-).slice(0,50);
+        m.musica.toLowerCase().includes(texto)
 
-encontrados.forEach(m=>{
+        ||
 
-resultado.innerHTML +=
+        m.artista.toLowerCase().includes(texto)
 
-`<div class="card">
+    ).slice(0,100);
 
-<div class="codigo">
-${m.codigo}
-</div>
 
-<h3>${m.musica}</h3>
+    if(encontrados.length === 0){
 
-<div class="artista">
-${m.artista}
-</div>
+        resultado.innerHTML = `
+        <div class="card">
+            <h3>Nenhuma música encontrada</h3>
+        </div>
+        `;
 
-</div>`;
+        return;
+    }
 
-});
 
-}
-function normalizar(texto){
-    return texto
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g,"")
-    .toLowerCase();
+    encontrados.forEach(m => {
+
+        resultado.innerHTML += `
+
+        <div class="card">
+
+            <div class="codigo">
+                ${m.codigo}
+            </div>
+
+            <h3>
+                ${m.musica}
+            </h3>
+
+            <div class="artista">
+                ${m.artista}
+            </div>
+
+            <div class="genero">
+                ${m.genero || ""}
+            </div>
+
+            <div class="favorito">
+                🤍
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
 }
