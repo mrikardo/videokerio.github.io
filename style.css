@@ -19,11 +19,8 @@ header{
 }
 
 .logo{
-    width:90%;
-    max-width:260px;
-    height:auto;
-    display:block;
-    margin:20px auto;
+    max-width:220px;
+    margin:15px auto 25px auto;
 }
 
 /* ===================================
@@ -38,7 +35,7 @@ header{
 
 .busca-box{
     width:90%;
-    max-width:800px;
+    max-width:750px;
 
     display:flex;
     align-items:center;
@@ -288,16 +285,8 @@ header{
 =================================== */
 
 .categorias{
-
-    display:flex;
-
-    justify-content:center;
-
-    flex-wrap:wrap;
-
-    gap:12px;
-
-    margin:20px 0;
+    margin-top:15px;
+    margin-bottom:20px;
 }
 
 .categoria{
