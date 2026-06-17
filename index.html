@@ -2,77 +2,127 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Videokê Rio - Catálogo Online</title>
+    <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" href="assets/logo.png">
-    <link rel="stylesheet" href="style.css">
+    <title>
+        Videokê Rio - Catálogo Online
+    </title>
+
+    <link
+    rel="icon"
+    href="assets/logo.png">
+
+    <link
+    rel="stylesheet"
+    href="style.css">
+
 </head>
 
 <body>
 
+    <!-- ==========================
+         TOPO
+    =========================== -->
+
     <header>
 
-        <img src="assets/logo.png" class="logo">
+        <img
+        src="assets/logo.png"
+        class="logo"
+        alt="Videokê Rio">
+
+        <!-- BUSCA -->
 
         <div class="busca-container">
 
-    <div class="busca-box">
+            <div class="busca-box">
 
-        <span class="icone-busca">🔍</span>
+                <span class="icone-busca">
+                    🔍
+                </span>
 
-        <input
-            type="text"
-            id="busca"
-            placeholder="Buscar música, cantor ou código">
+                <input
+                type="text"
+                id="busca"
+                placeholder="Buscar música, cantor ou código">
 
-    </div>
+            </div>
 
-</div>
+        </div>
 
-<div class="categorias">
+        <!-- CATEGORIAS -->
 
-    <button
-class="categoria ativa"
-onclick="mostrarTodas()">
+        <div class="categorias">
 
-📋 TODAS
+            <button
+            class="categoria ativa"
+            onclick="mostrarTodas()">
 
-</button>
+                📋 TODAS
 
-    <button class="categoria">
-        🎤 NACIONAIS
-    </button>
+            </button>
 
-    <button class="categoria">
-        🌎 INTERNACIONAIS
-    </button>
+            <button
+            class="categoria">
 
-    <button class="categoria">
-        🙏 GOSPEL
-    </button>
+                🎤 NACIONAIS
 
-    <button class="categoria">
-        👶 INFANTIL
-    </button>
-<button
-class="categoria"
-onclick="mostrarFavoritos()">
+            </button>
 
-❤️ FAVORITOS
+            <button
+            class="categoria">
 
-</button>
-</div>
+                🌎 INTERNACIONAIS
 
-<div id="contador"></div>
+            </button>
 
-<div class="subtitulo">
-    Encontre sua música pelo código, nome ou cantor
-</div>
+            <button
+            class="categoria">
+
+                🙏 GOSPEL
+
+            </button>
+
+            <button
+            class="categoria">
+
+                👶 INFANTIL
+
+            </button>
+
+            <button
+            class="categoria"
+            onclick="mostrarFavoritos()">
+
+                ❤️ FAVORITOS
+
+            </button>
+
+        </div>
+
+        <!-- CONTADORES -->
+
+        <div id="contador"></div>
+
+        <div id="resultadosEncontrados"></div>
+
+        <div class="subtitulo">
+
+            Encontre sua música pelo código,
+            nome ou cantor
+
+        </div>
 
     </header>
+
+    <!-- ==========================
+         RESULTADOS
+    =========================== -->
 
     <main>
 
@@ -80,38 +130,40 @@ onclick="mostrarFavoritos()">
 
     </main>
 
+    <!-- ==========================
+         PAGINAÇÃO
+    =========================== -->
+
+    <div class="paginacao">
+
+        <button
+        onclick="paginaAnterior()">
+
+            ◀
+
+        </button>
+
+        <div id="paginaAtual">
+
+            1 de 1
+
+        </div>
+
+        <button
+        onclick="proximaPagina()">
+
+            ▶
+
+        </button>
+
+    </div>
+
+    <!-- ==========================
+         JAVASCRIPT
+    =========================== -->
+
     <script src="script.js"></script>
 
 </body>
 
 </html>
-
-<div class="rodape">
-
-    <div class="rodape">
-
-<button
-class="btn-pagina"
-onclick="paginaAnterior()">
-
-◀
-
-</button>
-
-<div
-id="paginaAtual"
-class="pagina-atual">
-
-1 de 1
-
-</div>
-
-<button
-class="btn-pagina"
-onclick="proximaPagina()">
-
-▶
-
-</button>
-
-</div>
