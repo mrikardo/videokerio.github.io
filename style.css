@@ -461,3 +461,19 @@ body{
 body{
     padding-bottom:90px;
 }
+
+.favorito{
+    position:absolute;
+    right:25px;
+    bottom:25px;
+
+    font-size:38px;
+
+    cursor:pointer;
+
+    opacity:.85;
+}
+
+.card{
+    position:relative;
+}
