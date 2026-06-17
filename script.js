@@ -96,14 +96,24 @@ function pesquisar(){
                 ${m.genero || ""}
             </div>
 
-            <div class="favorito">
-                🤍
-            </div>
+            <div class="favorito"
+onclick="favoritar(this)">
+🤍
+</div>
 
         </div>
 
         `;
 
     });
+
+}
+function favoritar(el){
+
+    if(el.innerHTML === "🤍"){
+        el.innerHTML = "❤️";
+    }else{
+        el.innerHTML = "🤍";
+    }
 
 }
