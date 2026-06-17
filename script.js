@@ -20,6 +20,17 @@ fetch("musicas.json")
     document.getElementById("contador").innerHTML =
         `${musicas.length} músicas cadastradas`;
 
+    resultados = [...musicas];
+
+    resultados.sort((a,b)=>
+        a.musica.localeCompare(
+            b.musica,
+            'pt-BR',
+            {sensitivity:'base'}
+        )
+    );
+
+    renderizar();
 })
 .catch(err => {
 
@@ -52,17 +63,21 @@ function pesquisar(){
     .toLowerCase()
     .trim();
 
-    const resultado =
-    document
-    .getElementById("resultado");
-
-    resultado.innerHTML = "";
-
     if(texto === ""){
 
-        resultados = [];
+        resultados = [...musicas];
 
-        atualizarPagina();
+        resultados.sort((a,b)=>
+            a.musica.localeCompare(
+                b.musica,
+                'pt-BR',
+                {sensitivity:'base'}
+            )
+        );
+
+        paginaAtual = 1;
+
+        renderizar();
 
         return;
     }
@@ -105,7 +120,7 @@ function renderizar(){
     inicio + itensPorPagina;
 
     const pagina =
-    resultados.slice(inicio,fim);
+    resultados.slice(inicio, fim);
 
     pagina.forEach(m => {
 
