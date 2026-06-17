@@ -398,3 +398,144 @@ function mostrarTodas(){
     renderizar();
 
 }
+function limparCategorias(){
+
+document
+.querySelectorAll(".categoria")
+.forEach(btn =>
+    btn.classList.remove("ativa")
+);
+
+}
+
+function mostrarFavoritos(){
+
+limparCategorias();
+
+const btn = document.getElementById("btnFavoritos");
+
+if(btn){
+    btn.classList.add("ativa");
+}
+
+resultados = musicas.filter(m =>
+    favoritos.includes(m.codigo.toString())
+);
+
+ordenarResultados();
+
+paginaAtual = 1;
+
+renderizar();
+
+}
+
+function mostrarTodas(){
+
+limparCategorias();
+
+const btn = document.getElementById("btnTodas");
+
+if(btn){
+    btn.classList.add("ativa");
+}
+
+resultados = [...musicas];
+
+ordenarResultados();
+
+paginaAtual = 1;
+
+renderizar();
+
+}
+
+function mostrarNacionais(){
+
+limparCategorias();
+
+const btn = document.getElementById("btnNacionais");
+
+if(btn){
+    btn.classList.add("ativa");
+}
+
+resultados = musicas.filter(m =>
+    m.idioma === "BRA"
+);
+
+ordenarResultados();
+
+paginaAtual = 1;
+
+renderizar();
+
+}
+
+function mostrarInternacionais(){
+
+limparCategorias();
+
+const btn = document.getElementById("btnInternacionais");
+
+if(btn){
+    btn.classList.add("ativa");
+}
+
+resultados = musicas.filter(m =>
+    m.idioma !== "BRA"
+);
+
+ordenarResultados();
+
+paginaAtual = 1;
+
+renderizar();
+
+}
+
+function mostrarGospel(){
+
+limparCategorias();
+
+const btn = document.getElementById("btnGospel");
+
+if(btn){
+    btn.classList.add("ativa");
+}
+
+resultados = musicas.filter(m =>
+    m.genero &&
+    m.genero.toLowerCase() === "gospel"
+);
+
+ordenarResultados();
+
+paginaAtual = 1;
+
+renderizar();
+
+}
+
+function mostrarInfantil(){
+
+limparCategorias();
+
+const btn = document.getElementById("btnInfantil");
+
+if(btn){
+    btn.classList.add("ativa");
+}
+
+resultados = musicas.filter(m =>
+    m.genero &&
+    m.genero.toLowerCase() === "infantil"
+);
+
+ordenarResultados();
+
+paginaAtual = 1;
+
+renderizar();
+
+}
