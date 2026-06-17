@@ -223,7 +223,7 @@ header{
 
     max-width:1200px;
 
-    margin:20px auto;
+    margin:40px auto 20px auto;
 }
 
 /* ==========================================
@@ -242,7 +242,7 @@ header{
 
     margin-bottom:18px;
 
-    min-height:150px;
+    min-height:130px;
 
     box-shadow:
     0 4px 12px rgba(0,0,0,.25);
@@ -343,7 +343,7 @@ header{
 
     transform:translateY(-50%);
 
-    font-size:42px;
+    font-size:34px;
 
     cursor:pointer;
 

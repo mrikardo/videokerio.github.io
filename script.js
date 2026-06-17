@@ -8,12 +8,12 @@ const itensPorPagina = 20;
 
 let favoritos =
 JSON.parse(
-localStorage.getItem("favoritos")
+    localStorage.getItem("favoritos")
 ) || [];
 
 
 /* ==========================
-   CARREGA JSON
+   CARREGA CATÁLOGO
 ========================== */
 
 fetch("musicas.json")
@@ -27,15 +27,12 @@ fetch("musicas.json")
 
     resultados = [...musicas];
 
-    resultados.sort((a,b)=>
-        a.musica.localeCompare(
-            b.musica,
-            'pt-BR',
-            {sensitivity:'base'}
-        )
-    );
+    ordenarResultados();
+
+    atualizarBotaoFavoritos();
 
     renderizar();
+
 })
 .catch(err => {
 
@@ -56,6 +53,25 @@ document
 
 
 /* ==========================
+   ORDENAÇÃO
+========================== */
+
+function ordenarResultados(){
+
+    resultados.sort((a,b)=>
+
+        a.musica.localeCompare(
+            b.musica,
+            "pt-BR",
+            {
+                sensitivity:"base"
+            }
+        )
+    );
+}
+
+
+/* ==========================
    PESQUISA
 ========================== */
 
@@ -72,13 +88,7 @@ function pesquisar(){
 
         resultados = [...musicas];
 
-        resultados.sort((a,b)=>
-            a.musica.localeCompare(
-                b.musica,
-                'pt-BR',
-                {sensitivity:'base'}
-            )
-        );
+        ordenarResultados();
 
         paginaAtual = 1;
 
@@ -104,6 +114,25 @@ function pesquisar(){
     paginaAtual = 1;
 
     renderizar();
+}
+
+
+/* ==========================
+   BOTÃO FAVORITOS
+========================== */
+
+function atualizarBotaoFavoritos(){
+
+    const botao =
+    document.querySelector(
+        '.categoria[onclick="mostrarFavoritos()"]'
+    );
+
+    if(botao){
+
+        botao.innerHTML =
+        `❤️ FAVORITOS (${favoritos.length})`;
+    }
 }
 
 
@@ -149,18 +178,19 @@ function renderizar(){
                 ${m.genero || ""}
             </div>
 
-            <div class="favorito"
-     onclick="favoritar('${m.codigo}')">
+            <div
+                class="favorito"
+                onclick="favoritar('${m.codigo}')">
 
-     ${
-        favoritos.includes(
-            m.codigo.toString()
-        )
-        ? "❤️"
-        : "🤍"
-     }
+                ${
+                    favoritos.includes(
+                        m.codigo.toString()
+                    )
+                    ? "❤️"
+                    : "🤍"
+                }
 
-</div>
+            </div>
 
         </div>
 
@@ -168,6 +198,17 @@ function renderizar(){
     });
 
     atualizarPagina();
+
+    const info =
+    document.getElementById(
+        "resultadosEncontrados"
+    );
+
+    if(info){
+
+        info.innerHTML =
+        `${resultados.length} resultado(s) encontrado(s)`;
+    }
 }
 
 
@@ -257,8 +298,12 @@ function favoritar(codigo){
         JSON.stringify(favoritos)
     );
 
+    atualizarBotaoFavoritos();
+
     renderizar();
 }
+
+
 function mostrarFavoritos(){
 
     resultados = musicas.filter(m =>
@@ -268,21 +313,19 @@ function mostrarFavoritos(){
         )
     );
 
+    ordenarResultados();
+
     paginaAtual = 1;
 
     renderizar();
 }
+
+
 function mostrarTodas(){
 
     resultados = [...musicas];
 
-    resultados.sort((a,b)=>
-        a.musica.localeCompare(
-            b.musica,
-            'pt-BR',
-            {sensitivity:'base'}
-        )
-    );
+    ordenarResultados();
 
     paginaAtual = 1;
 
