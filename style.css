@@ -34,8 +34,8 @@ header{
 /* ================================= */
 
 .busca-container{
-    width:90%;
-    max-width:900px;
+    width:80%;
+    max-width:700px;
     margin:15px auto;
 }
 
@@ -49,11 +49,11 @@ header{
 
     border-radius:25px;
 
-    padding:15px 20px;
+    padding:10px 15px;
 }
 
 .icone-busca{
-    font-size:36px;
+    font-size:18px;
     margin-right:15px;
 }
 
