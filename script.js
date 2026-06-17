@@ -259,3 +259,32 @@ function favoritar(codigo){
 
     renderizar();
 }
+function mostrarFavoritos(){
+
+    resultados = musicas.filter(m =>
+
+        favoritos.includes(
+            m.codigo.toString()
+        )
+    );
+
+    paginaAtual = 1;
+
+    renderizar();
+}
+function mostrarTodas(){
+
+    resultados = [...musicas];
+
+    resultados.sort((a,b)=>
+        a.musica.localeCompare(
+            b.musica,
+            'pt-BR',
+            {sensitivity:'base'}
+        )
+    );
+
+    paginaAtual = 1;
+
+    renderizar();
+}
