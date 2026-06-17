@@ -23,7 +23,7 @@ header{
 
 .logo{
     width:90%;
-    max-width:320px;
+    max-width:380px;
     height:auto;
     display:block;
     margin:0 auto 10px auto;
@@ -86,7 +86,7 @@ header{
 
     font-weight:bold;
 
-    margin-top:20px;
+    margin-top:12px;
 }
 
 .subtitulo{
