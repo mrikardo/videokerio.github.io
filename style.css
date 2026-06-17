@@ -212,3 +212,79 @@ header{
     margin-top:8px;
     font-size:16px;
 }
+
+/* ========================= */
+/* RESULTADOS ESTILO RAF     */
+/* ========================= */
+
+#resultado{
+    width:95%;
+    max-width:1200px;
+    margin:30px auto;
+}
+
+.card{
+    background:#1c243d;
+    border-radius:20px;
+    padding:20px;
+    margin-bottom:15px;
+
+    box-shadow:
+    0 4px 12px rgba(0,0,0,.25);
+
+    transition:.2s;
+}
+
+.card:hover{
+    transform:translateY(-2px);
+}
+
+.codigo{
+    display:inline-block;
+
+    padding:8px 18px;
+
+    border:3px solid #f0a500;
+
+    border-radius:18px;
+
+    color:white;
+
+    font-size:24px;
+
+    font-weight:bold;
+
+    margin-bottom:15px;
+}
+
+.card h3{
+    margin:10px 0;
+    font-size:42px;
+    color:white;
+    text-transform:uppercase;
+}
+
+.artista{
+    color:#61a8ff;
+    font-size:24px;
+    font-weight:bold;
+}
+
+@media(max-width:768px){
+
+    .card{
+        padding:15px;
+    }
+
+    .card h3{
+        font-size:28px;
+    }
+
+    .artista{
+        font-size:20px;
+    }
+
+    .codigo{
+        font-size:20px;
+    }
+}
