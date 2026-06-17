@@ -1,17 +1,17 @@
-/* ==========================
+/* ===================================
    GERAL
-========================== */
+=================================== */
 
 body{
     margin:0;
     background:#08152d;
-    font-family:'Segoe UI', Arial, sans-serif;
+    font-family:'Segoe UI',Arial,sans-serif;
     color:#fff;
 }
 
-/* ==========================
+/* ===================================
    TOPO
-========================== */
+=================================== */
 
 header{
     text-align:center;
@@ -20,14 +20,15 @@ header{
 
 .logo{
     width:90%;
-    max-width:320px;
+    max-width:180px;
+    height:auto;
     display:block;
-    margin:10px auto 30px auto;
+    margin:20px auto;
 }
 
-/* ==========================
+/* ===================================
    BUSCA
-========================== */
+=================================== */
 
 .busca-container{
     width:100%;
@@ -59,27 +60,27 @@ header{
 
 #busca{
     width:100%;
+    height:55px;
+
     border:none;
     outline:none;
 
     background:transparent;
 
     color:white;
-
     font-size:22px;
 }
 
 #busca::placeholder{
-    color:#8b8b8b;
+    color:#8a8a8a;
 }
 
-/* ==========================
+/* ===================================
    CONTADOR
-========================== */
+=================================== */
 
 #contador{
     text-align:center;
-
     color:#58a5ff;
 
     font-size:18px;
@@ -90,29 +91,27 @@ header{
 
 .subtexto{
     text-align:center;
-
     color:#9db7d8;
 
     font-size:14px;
 
     margin-top:10px;
-    margin-bottom:30px;
+    margin-bottom:25px;
 }
 
-/* ==========================
+/* ===================================
    RESULTADOS
-========================== */
+=================================== */
 
 #resultado{
-    width:95%;
-    max-width:1200px;
-
-    margin:0 auto 30px auto;
+    width:90%;
+    max-width:1000px;
+    margin:25px auto;
 }
 
-/* ==========================
+/* ===================================
    CARD
-========================== */
+=================================== */
 
 .card{
     position:relative;
@@ -121,128 +120,166 @@ header{
 
     border-radius:20px;
 
-    padding:25px;
+    padding:18px 25px;
 
     margin-bottom:18px;
 
+    min-height:120px;
+
     box-shadow:
     0 4px 12px rgba(0,0,0,.25);
+
+    transition:.2s;
 }
 
-/* ==========================
+.card:hover{
+    transform:translateY(-2px);
+}
+
+/* ===================================
    CÓDIGO
-========================== */
+=================================== */
 
 .codigo{
     display:inline-block;
 
-    border:3px solid #f0a500;
+    padding:6px 16px;
 
-    border-radius:25px;
-
-    padding:8px 18px;
-
-    color:white;
-
-    font-size:28px;
-    font-weight:bold;
-
-    margin-bottom:15px;
-}
-
-/* ==========================
-   NOME DA MÚSICA
-========================== */
-
-.card h3{
-    margin:0 0 10px 0;
+    border:2px solid #f0a500;
+    border-radius:20px;
 
     color:white;
-
-    font-size:28px;
-    font-weight:400;
-    text-transform:none;
-}
-
-/* ==========================
-   ARTISTA
-========================== */
-
-.artista{
-    color:#69aaff;
 
     font-size:22px;
     font-weight:bold;
 
-    margin-bottom:5px;
+    margin-bottom:12px;
 }
 
-/* ==========================
+/* ===================================
+   MÚSICA
+=================================== */
+
+.card h3{
+    margin:10px 0 8px 0;
+
+    color:white;
+
+    font-size:22px;
+    font-weight:500;
+
+    text-transform:uppercase;
+}
+
+/* ===================================
+   ARTISTA
+=================================== */
+
+.artista{
+    color:#69aaff;
+
+    font-size:16px;
+    font-weight:600;
+}
+
+/* ===================================
    GÊNERO
-========================== */
+=================================== */
 
 .genero{
-    color:#c6c6c6;
+    color:#bcbcbc;
 
     font-size:14px;
+
+    margin-top:4px;
 
     font-style:italic;
 }
 
-/* ==========================
-   FAVORITO
-========================== */
+/* ===================================
+   FAVORITOS
+=================================== */
 
 .favorito{
     position:absolute;
 
-    right:25px;
-    bottom:20px;
+    right:30px;
+    top:50%;
+
+    transform:translateY(-50%);
 
     font-size:34px;
 
-    color:white;
-
     cursor:pointer;
 
-    opacity:.85;
+    user-select:none;
+
+    transition:.2s;
 }
 
 .favorito:hover{
-    color:red;
+    transform:translateY(-50%) scale(1.15);
 }
 
-/* ==========================
-   MOBILE
-========================== */
+/* ===================================
+   SCROLL
+=================================== */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#08152d;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#1f2640;
+    border-radius:10px;
+}
+
+/* ===================================
+   CELULAR
+=================================== */
 
 @media(max-width:768px){
 
     .logo{
-        max-width:220px;
+        max-width:160px;
     }
 
     .busca-box{
         width:95%;
-    }
-
-    #busca{
-        font-size:18px;
+        padding:8px 15px;
     }
 
     .icone-busca{
         font-size:28px;
     }
 
+    #busca{
+        font-size:18px;
+        height:50px;
+    }
+
+    #resultado{
+        width:95%;
+    }
+
     .codigo{
-        font-size:22px;
+        font-size:20px;
     }
 
     .card h3{
-        font-size:22px;
+        font-size:18px;
     }
 
     .artista{
-        font-size:18px;
+        font-size:15px;
+    }
+
+    .favorito{
+        font-size:30px;
+        right:20px;
     }
 }
