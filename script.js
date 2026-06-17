@@ -8,326 +8,409 @@ const itensPorPagina = 20;
 
 let favoritos =
 JSON.parse(
-    localStorage.getItem("favoritos")
+localStorage.getItem("favoritos")
 ) || [];
 
-
 /* ==========================
-   CARREGA CATÁLOGO
+CARREGA CATÁLOGO
 ========================== */
 
 fetch("musicas.json")
-.then(r => r.json())
+.then(response => response.json())
 .then(data => {
 
-    musicas = data;
+```
+musicas = data;
 
-    document.getElementById("contador").innerHTML =
-        `${musicas.length} músicas cadastradas`;
+document.getElementById("contador").innerHTML =
+    `${musicas.length} músicas cadastradas`;
 
-    resultados = [...musicas];
+resultados = [...musicas];
 
-    ordenarResultados();
+ordenarResultados();
 
-    atualizarBotaoFavoritos();
+atualizarBotaoFavoritos();
 
-    renderizar();
+renderizar();
+```
 
 })
-.catch(err => {
+.catch(error => {
 
-    console.error(err);
+```
+console.error(error);
 
-    document.getElementById("contador").innerHTML =
-        "Erro ao carregar catálogo";
+document.getElementById("contador").innerHTML =
+    "Erro ao carregar catálogo";
+```
+
 });
 
-
 /* ==========================
-   EVENTO BUSCA
+EVENTO BUSCA
 ========================== */
 
 document
 .getElementById("busca")
 .addEventListener("input", pesquisar);
 
-
 /* ==========================
-   ORDENAÇÃO
+ORDENAÇÃO
 ========================== */
 
 function ordenarResultados(){
 
-    resultados.sort((a,b)=>
+```
+resultados.sort((a,b)=>
 
-        a.musica.localeCompare(
-            b.musica,
-            "pt-BR",
-            {
-                sensitivity:"base"
-            }
-        )
-    );
+    a.musica.localeCompare(
+        b.musica,
+        "pt-BR",
+        {
+            sensitivity:"base"
+        }
+    )
+
+);
+```
+
 }
 
-
 /* ==========================
-   PESQUISA
+PESQUISA
 ========================== */
 
 function pesquisar(){
 
-    const texto =
-    document
-    .getElementById("busca")
-    .value
-    .toLowerCase()
-    .trim();
+```
+const texto =
+document
+.getElementById("busca")
+.value
+.toLowerCase()
+.trim();
 
-    if(texto === ""){
+if(texto === ""){
 
-        resultados = [...musicas];
+    mostrarTodas();
 
-        ordenarResultados();
-
-        paginaAtual = 1;
-
-        renderizar();
-
-        return;
-    }
-
-    resultados = musicas.filter(m =>
-
-        m.codigo.toString().includes(texto)
-
-        ||
-
-        m.musica.toLowerCase().includes(texto)
-
-        ||
-
-        m.artista.toLowerCase().includes(texto)
-
-    );
-
-    paginaAtual = 1;
-
-    renderizar();
+    return;
 }
 
+resultados = musicas.filter(m =>
+
+    m.codigo.toString().includes(texto)
+
+    ||
+
+    m.musica.toLowerCase().includes(texto)
+
+    ||
+
+    m.artista.toLowerCase().includes(texto)
+
+);
+
+paginaAtual = 1;
+
+renderizar();
+```
+
+}
 
 /* ==========================
-   BOTÃO FAVORITOS
+FAVORITOS
 ========================== */
 
 function atualizarBotaoFavoritos(){
 
-    const botao =
-    document.querySelector(
-        '.categoria[onclick="mostrarFavoritos()"]'
-    );
+```
+const botao =
+document.querySelector(
+    '.categoria[onclick="mostrarFavoritos()"]'
+);
 
-    if(botao){
+if(botao){
 
-        botao.innerHTML =
-        `❤️ FAVORITOS (${favoritos.length})`;
-    }
+    botao.innerHTML =
+    `❤️ FAVORITOS (${favoritos.length})`;
+}
+```
+
 }
 
+function favoritar(codigo){
+
+```
+codigo = codigo.toString();
+
+const indice =
+favoritos.indexOf(codigo);
+
+if(indice === -1){
+
+    favoritos.push(codigo);
+
+}else{
+
+    favoritos.splice(indice,1);
+
+}
+
+localStorage.setItem(
+    "favoritos",
+    JSON.stringify(favoritos)
+);
+
+atualizarBotaoFavoritos();
+
+renderizar();
+```
+
+}
 
 /* ==========================
-   RENDERIZA RESULTADOS
+RENDERIZA
 ========================== */
 
 function renderizar(){
 
-    const resultado =
-    document.getElementById("resultado");
+```
+const resultado =
+document.getElementById("resultado");
 
-    resultado.innerHTML = "";
+resultado.innerHTML = "";
 
-    const inicio =
-    (paginaAtual - 1) * itensPorPagina;
+const inicio =
+(paginaAtual - 1) * itensPorPagina;
 
-    const fim =
-    inicio + itensPorPagina;
+const fim =
+inicio + itensPorPagina;
 
-    const pagina =
-    resultados.slice(inicio, fim);
+const pagina =
+resultados.slice(inicio,fim);
 
-    pagina.forEach(m => {
+pagina.forEach(m => {
 
-        resultado.innerHTML += `
+    resultado.innerHTML += `
 
-        <div class="card">
+    <div class="card">
 
-            <div class="codigo">
-                ${m.codigo}
-            </div>
+        <div class="codigo">
+            ${m.codigo}
+        </div>
 
-            <h3>
-                ${m.musica}
-            </h3>
+        <h3>
+            ${m.musica}
+        </h3>
 
-            <div class="artista">
-                ${m.artista}
-            </div>
+        <div class="artista">
+            ${m.artista}
+        </div>
 
-            <div class="genero">
-                ${m.genero || ""}
-            </div>
+        <div class="genero">
+            ${m.genero || ""}
+        </div>
 
-            <div
-                class="favorito"
-                onclick="favoritar('${m.codigo}')">
+        <div
+            class="favorito"
+            onclick="favoritar('${m.codigo}')">
 
-                ${
-                    favoritos.includes(
-                        m.codigo.toString()
-                    )
-                    ? "❤️"
-                    : "🤍"
-                }
-
-            </div>
+            ${
+                favoritos.includes(
+                    m.codigo.toString()
+                )
+                ? "❤️"
+                : "🤍"
+            }
 
         </div>
 
-        `;
-    });
+    </div>
 
-    atualizarPagina();
+    `;
 
-    const info =
-    document.getElementById(
-        "resultadosEncontrados"
-    );
+});
 
-    if(info){
+atualizarPagina();
 
-        info.innerHTML =
-        `${resultados.length} resultado(s) encontrado(s)`;
-    }
+atualizarResultadosEncontrados();
+```
+
 }
 
+/* ==========================
+RESULTADOS ENCONTRADOS
+========================== */
+
+function atualizarResultadosEncontrados(){
+
+```
+const info =
+document.getElementById(
+    "resultadosEncontrados"
+);
+
+if(!info) return;
+
+const textoBusca =
+document
+.getElementById("busca")
+.value
+.trim();
+
+if(textoBusca === ""){
+
+    info.innerHTML = "";
+
+}else{
+
+    info.innerHTML =
+    `${resultados.length} resultado(s) encontrado(s)`;
+
+}
+```
+
+}
 
 /* ==========================
-   PAGINAÇÃO
+PAGINAÇÃO
 ========================== */
 
 function atualizarPagina(){
 
-    const totalPaginas =
+```
+const totalPaginas =
 
-    Math.max(
-        1,
-        Math.ceil(
-            resultados.length /
-            itensPorPagina
-        )
-    );
-
-    document.getElementById("paginaAtual")
-    .innerHTML =
-    `${paginaAtual} de ${totalPaginas}`;
-}
-
-
-function proximaPagina(){
-
-    const totalPaginas =
-
+Math.max(
+    1,
     Math.ceil(
         resultados.length /
         itensPorPagina
-    );
+    )
+);
 
-    if(paginaAtual < totalPaginas){
+document.getElementById(
+    "paginaAtual"
+).innerHTML =
+`${paginaAtual} de ${totalPaginas}`;
+```
 
-        paginaAtual++;
-
-        renderizar();
-
-        window.scrollTo({
-            top:0,
-            behavior:"smooth"
-        });
-    }
 }
 
+function proximaPagina(){
+
+```
+const totalPaginas =
+
+Math.ceil(
+    resultados.length /
+    itensPorPagina
+);
+
+if(paginaAtual < totalPaginas){
+
+    paginaAtual++;
+
+    renderizar();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+```
+
+}
 
 function paginaAnterior(){
 
-    if(paginaAtual > 1){
+```
+if(paginaAtual > 1){
 
-        paginaAtual--;
+    paginaAtual--;
 
-        renderizar();
+    renderizar();
 
-        window.scrollTo({
-            top:0,
-            behavior:"smooth"
-        });
-    }
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
 }
+```
 
+}
 
 /* ==========================
-   FAVORITOS
+FILTROS
 ========================== */
-
-function favoritar(codigo){
-
-    codigo = codigo.toString();
-
-    const indice =
-    favoritos.indexOf(codigo);
-
-    if(indice === -1){
-
-        favoritos.push(codigo);
-
-    }else{
-
-        favoritos.splice(indice,1);
-    }
-
-    localStorage.setItem(
-        "favoritos",
-        JSON.stringify(favoritos)
-    );
-
-    atualizarBotaoFavoritos();
-
-    renderizar();
-}
-
-
-function mostrarFavoritos(){
-
-    resultados = musicas.filter(m =>
-
-        favoritos.includes(
-            m.codigo.toString()
-        )
-    );
-
-    ordenarResultados();
-
-    paginaAtual = 1;
-
-    renderizar();
-}
-
 
 function mostrarTodas(){
 
-    resultados = [...musicas];
+```
+document
+.querySelectorAll(".categoria")
+.forEach(btn =>
+    btn.classList.remove("ativa")
+);
 
-    ordenarResultados();
+const btnTodas =
+document.querySelector(
+    '.categoria[onclick="mostrarTodas()"]'
+);
 
-    paginaAtual = 1;
+if(btnTodas){
 
-    renderizar();
+    btnTodas.classList.add("ativa");
+
+}
+
+resultados = [...musicas];
+
+ordenarResultados();
+
+paginaAtual = 1;
+
+renderizar();
+```
+
+}
+
+function mostrarFavoritos(){
+
+```
+document
+.querySelectorAll(".categoria")
+.forEach(btn =>
+    btn.classList.remove("ativa")
+);
+
+const btnFavoritos =
+document.querySelector(
+    '.categoria[onclick="mostrarFavoritos()"]'
+);
+
+if(btnFavoritos){
+
+    btnFavoritos.classList.add("ativa");
+
+}
+
+resultados = musicas.filter(m =>
+
+    favoritos.includes(
+        m.codigo.toString()
+    )
+
+);
+
+ordenarResultados();
+
+paginaAtual = 1;
+
+renderizar();
+```
+
 }
