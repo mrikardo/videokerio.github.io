@@ -337,7 +337,7 @@ header{
 
     position:absolute;
 
-    right:30px;
+    right:40px;
 
     top:50%;
 
@@ -470,4 +470,7 @@ header{
     .favorito{
         font-size:34px;
     }
+}
+main{
+    padding-top: 280px;
 }

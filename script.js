@@ -23,8 +23,7 @@ fetch("musicas.json")
     musicas = data;
 
     document.getElementById("contador").innerHTML =
-        `${musicas.length} músicas cadastradas`;
-
+`${musicas.length} músicas cadastradas`;
     resultados = [...musicas];
 
     ordenarResultados();
