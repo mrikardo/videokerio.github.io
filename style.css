@@ -15,12 +15,12 @@ body{
 
 header{
     text-align:center;
-    padding:40px 20px 20px;
+    padding:20px 20px 20px;
 }
 
 .logo{
     width:95%;
-    max-width:550px;
+    max: width 420px;
     height:auto;
     display:block;
     margin:20px auto;
@@ -33,7 +33,7 @@ header{
 .busca-container{
     width:90%;
     max-width:900px;
-    margin:30px auto;
+    margin:15px auto;
 }
 
 .busca-box{
