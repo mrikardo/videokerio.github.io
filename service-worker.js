@@ -1,4 +1,4 @@
-const CACHE_NAME = "videokerio-v3";
+const CACHE_NAME = "videokerio-v4";
 
 const urlsToCache = [
     "./",
@@ -6,10 +6,13 @@ const urlsToCache = [
     "./style.css",
     "./script.js",
     "./musicas.json",
-    "./assets/logo.png"
+    "./assets/logo.png",
+    "./manifest.json"
 ];
 
 self.addEventListener("install", event => {
+
+    self.skipWaiting();
 
     event.waitUntil(
 
@@ -20,7 +23,48 @@ self.addEventListener("install", event => {
 
 });
 
+self.addEventListener("activate", event => {
+
+    event.waitUntil(
+
+        caches.keys().then(cacheNames => {
+
+            return Promise.all(
+
+                cacheNames.map(cache => {
+
+                    if(cache !== CACHE_NAME){
+
+                        return caches.delete(cache);
+
+                    }
+
+                })
+
+            );
+
+        })
+
+    );
+
+    self.clients.claim();
+
+});
+
 self.addEventListener("fetch", event => {
+
+    if(event.request.url.includes("musicas.json")){
+
+        event.respondWith(
+
+            fetch(event.request)
+            .catch(() => caches.match(event.request))
+
+        );
+
+        return;
+
+    }
 
     event.respondWith(
 
