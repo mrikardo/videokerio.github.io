@@ -42,9 +42,9 @@ header{
 
     background:#001842;
 
-    text-align:center;
+     text-align:center;
 
-    padding:10px 20px 15px;
+    padding:5px 20px 5px;
 
     box-shadow:
     0 2px 10px rgba(0,0,0,.35);
@@ -64,7 +64,7 @@ header{
 
     height:auto;
 
-    margin:10px auto 20px auto;
+    margin:0 auto 5px auto;
 }
 /* ==========================================
    BUSCA
@@ -76,7 +76,7 @@ header{
 
     max-width:900px;
 
-    margin:0 auto;
+    margin-top:0;
 }
 
 .busca-box{
@@ -434,7 +434,7 @@ header{
     }
 
     .logo{
-        max-width:90px;
+        max-width:300px;
     }
 
     .busca-box{
@@ -469,7 +469,4 @@ header{
     .favorito{
         font-size:34px;
     }
-}
-main{
-    padding-top: 280px;
 }
