@@ -1,4 +1,4 @@
-const CACHE_NAME = "videokerio-v2";
+const CACHE_NAME = "videokerio-v3";
 
 const urlsToCache = [
     "./",
