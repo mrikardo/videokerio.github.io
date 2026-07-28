@@ -1,1 +1,52 @@
-:root{color-scheme:dark;font-family:Inter,Segoe UI,Arial,sans-serif;background:#070d1f;color:#f8fbff}*{box-sizing:border-box}body{margin:0;padding-bottom:84px;background:radial-gradient(circle at top,#183b73 0,#0b1530 32rem,#070d1f 58rem)}.hero{padding:26px 20px 18px;text-align:center;background:rgba(7,13,31,.78);border-bottom:1px solid rgba(255,255,255,.1);position:sticky;top:0;z-index:2;backdrop-filter:blur(12px)}.logo{display:block;width:min(300px,74vw);height:auto;margin:0 auto 6px}.eyebrow{margin:0;color:#66bcff;letter-spacing:.18em;font-size:.72rem;font-weight:800}h1{margin:6px 0 18px;font-size:clamp(1.35rem,4vw,2rem)}.search{max-width:760px;margin:auto;display:flex;align-items:center;gap:10px;padding:0 16px;border:1px solid #58a8ff;border-radius:999px;background:#111d3d}.search span{font-size:1.8rem;color:#7cc5ff;transform:rotate(-20deg)}.search input{width:100%;border:0;outline:0;background:transparent;color:inherit;padding:14px 0;font-size:1rem}.filters{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;max-width:960px;margin:15px auto 0}.filter,.pager button{border:1px solid #3c72ad;border-radius:999px;background:#14264b;color:#eaf5ff;cursor:pointer;font:inherit;font-weight:700;padding:8px 13px}.filter:hover,.pager button:hover,.filter.active{background:#f0a500;border-color:#f0a500;color:#101827}.filter span{display:inline-grid;place-items:center;min-width:1.25em;padding:0 3px;border-radius:999px;background:rgba(255,255,255,.16)}.summary{margin:13px 0 0;color:#a9cfff;font-size:.9rem}main{width:min(1100px,94vw);margin:26px auto}.catalog{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}.song{position:relative;min-height:150px;padding:18px;border:1px solid rgba(139,193,255,.2);border-radius:18px;background:linear-gradient(145deg,#17274c,#0e1935);box-shadow:0 7px 22px rgba(0,0,0,.2)}.code{display:inline-block;padding:4px 9px;border-radius:999px;color:#ffcc58;background:#263c69;font-size:.8rem;font-weight:800}.song h2{margin:13px 38px 7px 0;font-size:1.05rem;line-height:1.3;text-transform:uppercase}.artist{margin:0;color:#79c1ff;font-weight:700}.genre{margin:8px 0 0;color:#b8c3d8;font-size:.84rem}.favorite{position:absolute;top:14px;right:14px;border:0;background:transparent;color:#dbeaff;cursor:pointer;font-size:1.5rem}.favorite.saved{color:#ff6382}.empty{padding:55px 0;text-align:center;color:#b8c3d8}.pager{position:fixed;inset:auto 0 0;z-index:3;display:flex;justify-content:center;align-items:center;gap:18px;padding:14px;background:rgba(10,18,39,.95);border-top:1px solid rgba(255,255,255,.12)}.pager button:disabled{opacity:.4;cursor:default}@media(max-width:580px){.hero{padding:16px 12px 13px}.logo{width:220px}.filters{gap:6px}.filter{padding:7px 10px;font-size:.8rem}.catalog{grid-template-columns:1fr}}
+:root { color-scheme: dark; font-family: Inter, "Segoe UI", Arial, sans-serif; background: #070d1f; color: #f8fbff; }
+* { box-sizing: border-box; }
+body { margin: 0; padding-bottom: 84px; background: radial-gradient(circle at top, #183b73 0, #0b1530 32rem, #070d1f 58rem); }
+.hero { position: sticky; top: 0; z-index: 2; padding: 26px 20px 18px; text-align: center; background: rgba(7, 13, 31, .78); border-bottom: 1px solid rgba(255,255,255,.1); backdrop-filter: blur(12px); }
+.logo { display: block; width: min(300px, 74vw); height: auto; margin: 0 auto 6px; }
+.eyebrow { margin: 0; color: #66bcff; letter-spacing: .18em; font-size: .72rem; font-weight: 800; }
+h1 { margin: 6px 0 18px; font-size: clamp(1.35rem, 4vw, 2rem); }
+.search { display: flex; align-items: center; gap: 10px; max-width: 760px; margin: auto; padding: 0 16px; border: 1px solid #58a8ff; border-radius: 999px; background: #111d3d; }
+.search span { font-size: 1.8rem; color: #7cc5ff; transform: rotate(-20deg); }
+.search input { width: 100%; padding: 14px 0; border: 0; outline: 0; background: transparent; color: inherit; font-size: 1rem; }
+.filters { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; max-width: 960px; margin: 15px auto 0; }
+.filter, .pager button { padding: 8px 13px; border: 1px solid #3c72ad; border-radius: 999px; background: #14264b; color: #eaf5ff; cursor: pointer; font: inherit; font-weight: 700; }
+.filter:hover, .pager button:hover, .filter.active { background: #f0a500; border-color: #f0a500; color: #101827; }
+.filter span { display: inline-grid; place-items: center; min-width: 1.25em; padding: 0 3px; border-radius: 999px; background: rgba(255,255,255,.16); }
+.summary { margin: 13px 0 0; color: #a9cfff; font-size: .9rem; }
+main { width: min(1100px, 94vw); margin: 26px auto; }
+.catalog { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+.song { position: relative; min-height: 150px; padding: 18px; border: 1px solid rgba(139,193,255,.2); border-radius: 18px; background: linear-gradient(145deg, #17274c, #0e1935); box-shadow: 0 7px 22px rgba(0,0,0,.2); }
+.code { display: inline-block; padding: 4px 9px; border-radius: 999px; color: #ffcc58; background: #263c69; font-size: .8rem; font-weight: 800; }
+.song h2 { margin: 13px 38px 7px 0; font-size: 1.05rem; line-height: 1.3; text-transform: uppercase; }
+.artist { margin: 0; color: #79c1ff; font-weight: 700; }
+.genre { margin: 8px 0 0; color: #b8c3d8; font-size: .84rem; }
+.favorite { position: absolute; top: 14px; right: 14px; border: 0; background: transparent; color: #dbeaff; cursor: pointer; font-size: 1.5rem; }
+.favorite.saved { color: #ff6382; }
+.empty { padding: 55px 0; text-align: center; color: #b8c3d8; }
+.pager { position: fixed; inset: auto 0 0; z-index: 3; display: flex; justify-content: center; align-items: center; gap: 18px; padding: 14px; background: rgba(10,18,39,.95); border-top: 1px solid rgba(255,255,255,.12); }
+.pager button:disabled { opacity: .4; cursor: default; }
+
+@media (max-width: 580px) {
+  body { padding-bottom: 72px; }
+  .hero { padding: 10px 12px 12px; }
+  .logo { width: 150px; margin-bottom: 0; }
+  .eyebrow { font-size: .64rem; letter-spacing: .14em; }
+  .hero h1 { margin: 4px 0 12px; font-size: 1.3rem; line-height: 1.2; }
+  .search { gap: 7px; padding: 0 13px; }
+  .search span { font-size: 1.45rem; }
+  .search input { padding: 11px 0; font-size: .9rem; }
+  .search input::placeholder { font-size: .82rem; }
+  .filters { gap: 6px; margin-top: 11px; }
+  .filter { padding: 7px 10px; font-size: .76rem; }
+  .summary { margin-top: 10px; font-size: .82rem; }
+  main { width: calc(100% - 20px); margin: 14px auto 20px; }
+  .catalog { grid-template-columns: 1fr; gap: 10px; }
+  .song { min-height: 128px; padding: 15px; border-radius: 16px; }
+  .song h2 { margin: 10px 36px 6px 0; font-size: 1rem; }
+  .artist { font-size: .92rem; }
+  .genre { margin-top: 6px; font-size: .78rem; }
+  .favorite { top: 11px; right: 12px; font-size: 1.4rem; }
+  .pager { gap: 14px; padding: 9px; }
+  .pager button { padding: 7px 12px; }
+  .pager #page { font-size: .9rem; }
+}
