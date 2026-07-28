@@ -434,28 +434,69 @@ main{
 @media(max-width:768px){
 
     body{
-        padding-top:0px;
+        padding-top:0;
+    }
+
+    header{
+        padding:10px 12px 12px;
     }
 
     .logo{
-        max-width:320px;
+        max-width:150px;
+        margin-bottom:4px;
+    }
+
+    .busca-container{
+        width:100%;
+        margin:0 auto 8px auto;
     }
 
     .busca-box{
-        height:52px;
+        height:46px;
+        padding:0 14px;
     }
 
     .icone-busca{
-        font-size:24px;
+        font-size:21px;
+        margin-right:8px;
     }
 
     #busca{
-        font-size:18px;
+        font-size:15px;
+    }
+
+    .categorias{
+        gap:6px;
+        margin-top:10px;
     }
 
     .categoria{
+        font-size:10px;
+        padding:6px 9px;
+    }
+
+    #contador{
+        font-size:14px;
+        margin-top:9px;
+    }
+
+    #resultadosEncontrados{
+        font-size:11px;
+        margin-top:3px;
+    }
+
+    .subtitulo{
         font-size:12px;
-        padding:7px 12px;
+        margin-top:3px;
+    }
+
+    main{
+        margin-top:235px;
+    }
+
+    #resultado{
+        width:calc(100% - 20px);
+        margin:16px auto 20px auto;
     }
 
     .codigo{
